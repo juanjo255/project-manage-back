@@ -20,7 +20,7 @@ const Users_Controllers = {
                 Name: args.Name,
                 Lastname: args.Lastname,
                 Identification: args.Identification,
-                Password: bcrypt.hashSync(args.Password, 10),
+                Password: args.Password,
                 Email: args.Email,
                 Role: args.Role,
             });

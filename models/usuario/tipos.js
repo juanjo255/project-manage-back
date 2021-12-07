@@ -2,28 +2,28 @@ import { gql } from 'apollo-server-express';
 
 const Types_Users = gql`
         type User {
-        _id: ID!
-        Name: String!
-        Lastname: String!
-        Identification: String!
-        Password: String!
-        Email: String!
-        Role: Enum_Role!
-        State: Enum_UserState
+                _id: ID!
+                Name: String!
+                Lastname: String!
+                Identification: String!
+                Password: String!
+                Email: String!
+                Role: Enum_Role!
+                State: Enum_UserState
         }
         type Query {
-        Users: [User]
-        User(_id: String!): User
+                Users: [User]
+                User(_id: String!): User
         }
         type Mutation {
-        CreateUser(
-        Name: String!
-        Lastname: String!
-        Email: String!
-        Identification: String!
-        Password: String!
-        Role: Enum_Role!
-        ): User,
+                CreateUser(
+                        Name: String!
+                        Lastname: String!
+                        Email: String!
+                        Identification: String!
+                        Password: String!
+                        Role: Enum_Role!
+                ): User,
 
         Login(
                 Email: String!
@@ -31,18 +31,18 @@ const Types_Users = gql`
         ): User,
 
         UpdateUser(
-        _id: String!
-        Name: String!
-        Lastname: String!
-        Email: String!
-        Identification: String!
-        Password: String!
-        Role: Enum_Role!
-        ): User,
+                _id: String!
+                Name: String!
+                Lastname: String!
+                Email: String!
+                Identification: String!
+                Password: String!
+                Role: Enum_Role!
+                ): User,
 
         UpdateState(
-        State: Enum_UserState!
-        ): User,
+                State: Enum_UserState!
+                ): User,
         
         DeleteUser(_id: String, Email: String): User
         }
