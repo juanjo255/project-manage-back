@@ -29,15 +29,15 @@ const Autenticacion_resolvers = {
     },
 
     login: async (parent, args) => {
-        const usuarioEcontrado = await UserModel.findOne({ correo: args.correo });
-        if (await bcrypt.compare(args.password, usuarioEcontrado.password)) {
+        const usuarioEncontrado = await UserModel.findOne({ Email: args.Email });
+        if (await bcrypt.compare(args.Password, usuarioEncontrado.Password)) {
             return {
                 token: generateToken({
-                    Name: usuarioEcontrado.Name,
-                    Lastname: usuarioEcontrado.Lastname,
-                    Identification: usuarioEcontrado.Identification,
+                    Name: usuarioEncontrado.Name,
+                    Lastname: usuarioEncontrado.Lastname,
+                    Identification: usuarioEncontrado.Identification,
                     Password: usuarioEncontrado.Password,
-                    Email: usuarioEcontrado.Email,
+                    Email: usuarioEncontrado.Email,
                     Role: usuarioEncontrado.Role,
                 }),
             };

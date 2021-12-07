@@ -7,13 +7,13 @@ const Autenticacion_types = gql`
     }
     type Mutation {
         registro(
-            nombre: String!
-            apellido: String!
-            identificacion: String!
-            correo: String!
-            rol: Enum_Rol!
-            estado: Enum_EstadoUsuario
-            password: String!
+            Name: String!
+            Lastname: String!
+            Identification: String!
+            Email: String!
+            Role: Enum_Role!
+            State: Enum_UserState
+            Password: String!
         ): Token!
         login(correo: String!, password: String!): Token
         refreshToken: Token
