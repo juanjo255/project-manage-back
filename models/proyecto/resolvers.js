@@ -12,7 +12,7 @@ const Resolvers_Projects = {
         },
         Inscriptions: async (parent, args, context) => {
             const Inscriptions = await InscriptionModel.find ({
-                Name_project: parent._id,
+                Project: parent._id,
             });
             return Inscriptions;
         },

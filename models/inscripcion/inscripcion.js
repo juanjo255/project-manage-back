@@ -4,7 +4,7 @@ import { UserModel } from '../usuario/usuario.js';
 const { Schema, model } = mongoose;
 
 const InscriptionSchema = new Schema({
-  Name_project: {
+  Project: {
     type: Schema.Types.ObjectId,
     ref: ProjectModel,
     required: true,

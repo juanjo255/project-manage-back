@@ -6,7 +6,7 @@ const Inscription_Types = gql`
     Income_Date: Date
     Outcome_Date: Date
     Inscription_State: String
-    Name_project: Project!
+    Project: Project!
     Student: User!
   }
   type Query {
@@ -14,7 +14,7 @@ const Inscription_Types = gql`
   }
   type Mutation {
     CreateInscription(
-      Name_project: String!
+      project: String!
       Student: String!
     ): Inscription
     

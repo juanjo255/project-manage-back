@@ -11,7 +11,7 @@ const Inscriptions_Resolvers = {
         CreateInscription: async (parent, args) => {
             const NewInscription = await InscriptionModel.create({
                 Inscription_State: args.Inscription_State,
-                Name_project: args.Name_project,
+                Project: args.Project,
                 Student: args.Student,
             });
             return NewInscription;
