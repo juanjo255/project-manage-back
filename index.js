@@ -17,11 +17,12 @@ const server = new ApolloServer({
 const app = express();
 app.use(express.json());
 app.use(cors());
+
 app.listen(process.env.PORT || 4000, async () => {
   await conectarBD();
   await server.start();
 
   server.applyMiddleware({ app });
-
+  
   console.log('servidor listo');
 });
