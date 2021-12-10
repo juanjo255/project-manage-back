@@ -28,43 +28,43 @@ const Autenticacion_resolvers = {
         };
     },
 
-    login: async (parent, args) => {
-        const usuarioEncontrado = await UserModel.findOne({ Email: args.Email });
-        if (await bcrypt.compare(args.Password, usuarioEncontrado.Password)) {
+        login: async (parent, args) => {
+            const usuarioEncontrado = await UserModel.findOne({ Email: args.Email });
+            if (await bcrypt.compare(args.Password, usuarioEncontrado.Password)) {
+                return {
+                    token: generateToken({
+                        Name: usuarioEncontrado.Name,
+                        Lastname: usuarioEncontrado.Lastname,
+                        Identification: usuarioEncontrado.Identification,
+                        Password: usuarioEncontrado.Password,
+                        Email: usuarioEncontrado.Email,
+                        Role: usuarioEncontrado.Role,
+                    }),
+                };
+            }
+        },
+
+        refreshToken: async (parent, args, context) => {
+            console.log('contexto', context);
+            if (!context.userData) {
+                return {
+                    error: 'token no valido',
+                };
+            } else {
             return {
                 token: generateToken({
-                    Name: usuarioEncontrado.Name,
-                    Lastname: usuarioEncontrado.Lastname,
-                    Identification: usuarioEncontrado.Identification,
-                    Password: usuarioEncontrado.Password,
-                    Email: usuarioEncontrado.Email,
-                    Role: usuarioEncontrado.Role,
+                    _id: context.userData._id,
+                    Name: context.userData.Name,
+                    Lastname: context.userData.Lastname,
+                    Identification: context.userData.Identification,
+                    Email: context.userData.Email,
+                    Role: context.userData.Role,
                 }),
             };
         }
-    },
-
-    refreshToken: async (parent, args, context) => {
-        console.log('contexto', context);
-        if (!context.userData) {
-            return {
-                error: 'token no valido',
-            };
-        } else {
-        return {
-            token: generateToken({
-                _id: context.userData._id,
-                Name: context.userData.Name,
-                Lastname: context.userData.Lastname,
-                Identification: context.userData.Identification,
-                Email: context.userData.Email,
-                Role: context.userData.Role,
-            }),
-        };
-    }
-      // validar que el contexto tenga info del usuario. si si, refrescar el token
-      // si no devolver null para que en el front redirija al login.
-    },
+        // validar que el contexto tenga info del usuario. si si, refrescar el token
+        // si no devolver null para que en el front redirija al login.
+        },
     },
 };
 

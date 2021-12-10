@@ -9,9 +9,28 @@ import { resolvers } from './graphql/resolvers.js';
 // aqui conectamos con apollo e iniciamos la app
 dotenv.config();
 
+const getUserData = (token) => {
+  const verificacion = validateToken(token.split(' ')[1]);
+  if (verificacion.data) {
+    return verificacion.data;
+  } 
+  return null;
+};
+
 const server = new ApolloServer({
   typeDefs: tipos,
   resolvers: resolvers,
+  context: ({ req, res }) => {
+    const token = req.headers?.authorization ?? null;
+    if (token) {
+      const userData = getUserData(token);
+      if (userData) {
+        return { userData };
+      }
+    }
+    console.log("no hay un usuario");
+    return null;
+  },
 });
 
 const app = express();
