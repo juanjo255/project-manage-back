@@ -15,7 +15,7 @@ const Autenticacion_types = gql`
             State: Enum_UserState
             Password: String!
         ): Token!
-        login(correo: String!, password: String!): Token
+        login(Email: String!, Password: String!): Token
         refreshToken: Token
     }
 `;
