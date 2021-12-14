@@ -1,6 +1,6 @@
 import { ModeloAvance } from './avance.js';
 
-const resolversAvance = {
+const Avance_Resolvers = {
     Query: {
         Avance: async (parent, args) => {
         const avances = await ModeloAvance.find().populate('Project').populate('CreatedBy');
@@ -26,4 +26,4 @@ const resolversAvance = {
     },
 };
 
-export { resolversAvance }
+export { Avance_Resolvers }

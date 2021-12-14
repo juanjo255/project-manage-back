@@ -1,6 +1,6 @@
 import { gql } from 'apollo-server-express';
 
-const tiposAvance = gql`
+const Avance_Types = gql`
     type Avance {
         _id: ID!
         Date: Date!
@@ -19,4 +19,4 @@ const tiposAvance = gql`
     }
 `;
 
-export { tiposAvance };
+export { Avance_Types };
