@@ -7,7 +7,7 @@ const Avance_Types = gql`
         Description: String!
         Observations: [String]
         Project: Project!
-        CreatedBy: Usuario!
+        CreatedBy: User!
     }
 
     type Query {

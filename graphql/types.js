@@ -11,7 +11,7 @@ const GlobalTypes = gql`
 `;
 
 const tipos = [
-  Avance_Types
+  Avance_Types,
   Autenticacion_types,
   GlobalTypes,
   Types_Users,
