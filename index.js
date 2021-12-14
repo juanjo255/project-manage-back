@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import conectarBD from './db/db.js';
 import { tipos } from './graphql/types.js';
 import { resolvers } from './graphql/resolvers.js';
-
+import {validateToken} from './utils/tokenUtils.js'
 // aqui conectamos con apollo e iniciamos la app
 dotenv.config();
 
@@ -20,13 +20,13 @@ const getUserData = (token) => {
 const server = new ApolloServer({
   typeDefs: tipos,
   resolvers: resolvers,
-  context: ({ req, res }) => {
-    const token = req.headers?.authorization ?? null;
+  context: ({ req }) => {
+    const token = req.headers.authorization;
+    console.log ("toke que llego", token)
     if (token) {
       const userData = getUserData(token);
-      if (userData) {
-        return { userData };
-      }
+      console.log ("datos usuarios", userData)
+      return { userData };
     }
     console.log("no hay un usuario");
     return null;
