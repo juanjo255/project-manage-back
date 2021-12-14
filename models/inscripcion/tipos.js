@@ -14,7 +14,7 @@ const Inscription_Types = gql`
   }
   type Mutation {
     CreateInscription(
-      project: String!
+      Project: String!
       Student: String!
     ): Inscription
     
