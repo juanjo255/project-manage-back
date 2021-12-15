@@ -25,8 +25,8 @@ const InscriptionSchema = new Schema({
   },
   Inscription_State: {
     type: String,
-    enum: ['ACCEPTED', 'REJECTED'],
-    default: 'REJECTED',
+    enum: ['ACCEPTED','PENDING' ,'REJECTED'],
+    default: 'PENDING',
   },
   Income_Date: {
     type: Date,
