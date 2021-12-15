@@ -45,9 +45,8 @@ const Users_Controllers = {
                     Name: args.Name,
                     Lastname: args.Lastname,
                     Identification: args.Identification,
-                    Password: args.Password,
                     Email: args.Email,
-                    Role: args.Role,
+                    State: args.State,
                 },
                 { new: true }
             );
