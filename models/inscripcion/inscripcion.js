@@ -9,15 +9,6 @@ const InscriptionSchema = new Schema({
     ref: ProjectModel,
     required: true,
   },
-  Initial_Date: {
-    type: Date,
-  },
-  Final_Date: {
-    type: Date,
-  },
-  Leader: {
-    type: String
-  },
   Student: {
     type: Schema.Types.ObjectId,
     ref: UserModel,
@@ -27,13 +18,7 @@ const InscriptionSchema = new Schema({
     type: String,
     enum: ['ACCEPTED','PENDING' ,'REJECTED'],
     default: 'PENDING',
-  },
-  Income_Date: {
-    type: Date,
-  },
-  Outcome_Date: {
-    type: Date,
-  },
+  }
 });
 
 const InscriptionModel = model('Inscription', InscriptionSchema);
