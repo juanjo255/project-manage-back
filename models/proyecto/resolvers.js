@@ -40,10 +40,7 @@ const Resolvers_Projects = {
         UpdateProject: async (parent, args) => {
             const UpdatedProject = await ProjectModel.findByIdAndUpdate(
                 args.idProject,
-                {   NameProject: args.NameProject,
-                    Objectives: args.Objectives,
-                    Budget: args.Budget
-                },
+                args.Fields,
                 { new: true }
             );
             return UpdatedProject;

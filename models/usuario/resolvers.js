@@ -6,7 +6,6 @@ const Users_Controllers = {
     Query: {
         Users: async (parent, args) => {
             const users = await UserModel.find();
-            console.log("You are seeing all the users");
             return users;
         },
         User: async (parent, args) => {
