@@ -37,7 +37,7 @@ const Types_Users = gql`
                 Email: String!
                 Identification: String!
                 Password: String!
-                Role: Enum_Role!
+                State: Enum_UserState!
                 ): User,
 
         UpdateState(
