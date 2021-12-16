@@ -15,9 +15,9 @@ const Autenticacion_resolvers = {
                 Role: args.Role,
                 Password: hashedPassword,
             });
-        //console.log('usuario creado', usuarioCreado);
         return {
             token: generateToken({
+                _id: usuarioCreado._id,
                 Name: usuarioCreado.Name,
                 Lastname: usuarioCreado.Lastname,
                 Identification: usuarioCreado.Identification,
@@ -33,6 +33,7 @@ const Autenticacion_resolvers = {
             if (await bcrypt.compare(args.Password, usuarioEncontrado.Password)) {
                 return {
                     token: generateToken({
+                        _id: usuarioEncontrado._id,
                         Name: usuarioEncontrado.Name,
                         Lastname: usuarioEncontrado.Lastname,
                         Identification: usuarioEncontrado.Identification,
