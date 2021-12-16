@@ -51,6 +51,9 @@ const ProjectTypes = gql`
             ProjectState: Enum_ProjectState!
         ): Project,
 
+        DeleteProject (
+            idProject: String!
+            ):Project
 
         UpdatePhase(
         idProject: String!

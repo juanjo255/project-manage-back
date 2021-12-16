@@ -45,6 +45,9 @@ const Resolvers_Projects = {
             );
             return UpdatedProject;
         },
+        DeleteProject: async (parent, args) => {
+            const DeleteProject = await ProjectModel.findByIdAndDelete(args.idProject,_,(err, doc, res) => {console.log (err,"doc", doc); console.log(res);})
+        },
         UpdateProjectState: async (parent, args) => {
             const StateUpdated = await ProjectModel.findByIdAndUpdate(
                 args.idProject,
