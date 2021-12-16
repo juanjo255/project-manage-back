@@ -51,6 +51,7 @@ const ProjectTypes = gql`
             ProjectState: Enum_ProjectState!
         ): Project,
 
+
         UpdatePhase(
         idProject: String!
         Phase: Enum_ProjectPhase!
