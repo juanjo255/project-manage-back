@@ -69,6 +69,10 @@ const Users_Controllers = {
                 return UsertoDelete;
             }
         },
+        editProfile: async (parent, args) => {
+            const UserToEdit = await UserModel.findByIdAndUpdate(args._id, args.Fields)
+            return UserToEdit;
+        }
     },
 };
 

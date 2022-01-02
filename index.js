@@ -22,13 +22,13 @@ const server = new ApolloServer({
   resolvers: resolvers,
   context: ({ req }) => {
     const token = req.headers.authorization;
-    //console.log ("toke que llego", token)
+    // console.log ("toke que llego", token)
     if (token) {
       const userData = getUserData(token);
-      console.log ("datos usuarios", userData)
+      //console.log ("datos usuarios", userData)
       return { userData };
     }
-    //console.log("no hay un usuario");
+    console.log("no hay un usuario");
     return null;
   },
 });

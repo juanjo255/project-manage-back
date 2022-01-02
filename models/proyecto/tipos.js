@@ -18,6 +18,7 @@ const ProjectTypes = gql`
         ProjectState: Enum_ProjectState
         Phase: Enum_ProjectPhase
         Leader: String
+        Objectives: [CreateObjective]
     }
     type Project {
         _id: ID!
@@ -51,19 +52,16 @@ const ProjectTypes = gql`
             ProjectState: Enum_ProjectState!
         ): Project,
 
-        DeleteProject (
-            idProject: String!
-            ):Project,
-
         UpdatePhase(
         idProject: String!
         Phase: Enum_ProjectPhase!
-        ):Project,
+        ): Project,
         
         UpdateProject(
             idProject: String!,
             Fields: ProjectFields!
             ): Project
+
         CreateObjective(idProject: String!, Description: String!, Type: Enum_ObjectiveType!): Project
         DeleteObjective(idProject: String!, idObjective: String!): Project
     }

@@ -17,15 +17,10 @@ const avanceSchema = new Schema({
         type: Date,
         required: true,
     },
-    Description: {
+    Observations: {
         type: String,
         required: true,
     },
-    Observations: [
-        {
-        type: String,
-        },
-    ],
     Project: {
         type: Schema.Types.ObjectId,
         ref: ProjectModel,
@@ -38,6 +33,6 @@ const avanceSchema = new Schema({
     },
 });
 
-const ModeloAvance = model('Progress', avanceSchema);
+const ModeloAvance = model('Progresses', avanceSchema);
 
 export { ModeloAvance };

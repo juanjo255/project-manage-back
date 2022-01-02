@@ -16,11 +16,11 @@ const Inscriptions_Resolvers = {
             });
             return NewInscription;
         },
-        AcceptInscriptions: async (parent, args) => {
+        ResponseInscription: async (parent, args) => {
             const InscriptionOk = await InscriptionModel.findByIdAndUpdate(
                 args.id,
                 {
-                    Inscription_State: 'ACCEPTED',
+                    Inscription_State: args.value,
                     Income_Date: Date.now(),
                 },
                 { new: true }
