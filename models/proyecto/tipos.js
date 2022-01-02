@@ -53,7 +53,7 @@ const ProjectTypes = gql`
 
         DeleteProject (
             idProject: String!
-            ):Project
+            ):Project,
 
         UpdatePhase(
         idProject: String!
