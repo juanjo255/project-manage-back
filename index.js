@@ -22,7 +22,7 @@ const server = new ApolloServer({
   resolvers: resolvers,
   context: ({ req }) => {
     const token = req.headers.authorization;
-    // console.log ("toke que llego", token)
+    console.log ("toke que llego", token)
     if (token) {
       const userData = getUserData(token);
       //console.log ("datos usuarios", userData)
@@ -32,7 +32,6 @@ const server = new ApolloServer({
     return null;
   },
 });
-
 const app = express();
 app.use(express.json());
 app.use(cors());
