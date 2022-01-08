@@ -6,6 +6,7 @@ import conectarBD from './db/db.js';
 import { tipos } from './graphql/types.js';
 import { resolvers } from './graphql/resolvers.js';
 import {validateToken} from './utils/tokenUtils.js'
+
 // aqui conectamos con apollo e iniciamos la app
 dotenv.config();
 
